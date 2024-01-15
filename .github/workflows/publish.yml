@@ -6,6 +6,9 @@ on:
   release:
     types: [created]
 
+env:
+  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,5 +39,4 @@ jobs:
       - run: git push --tags && git push
       - run: yarn publish
       - run: yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+       
