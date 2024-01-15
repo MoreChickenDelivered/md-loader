@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: 21
           registry-url: https://npm.pkg.github.com/
+      - run: corepack enable
       - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
