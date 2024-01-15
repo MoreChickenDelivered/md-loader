@@ -1,0 +1,37 @@
+{
+  "peerDependencies": {
+    "webpack": "*"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "esnext": "./index.ts",
+  "types": "./index.d.ts",
+  "homepage": "tradeterminal.io",
+  "name": "md-frag-loader",
+  "scripts": {
+    "build": "yarn install && tsc -p ./tsconfig.json"
+  },
+  "version": "0.1",
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "@types/mdast": "^4.0.3",
+    "@types/node": "^20.11.2",
+    "@types/webpack": "^5.28.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "debug": "^4.3.4",
+    "mdast": "^3.0.0",
+    "remark": "^15.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "schema-utils": "^4.2.0",
+    "unified": "^11.0.4",
+    "vfile": "^6.0.1"
+  },
+  "description": "Webpack Content/AST loader for Markdown (or fragments of)",
+  "repository": "git@github.com:MoreChickenDelivered/md-loader.git",
+  "author": "ymeng@tradeterminal.io",
+  "license": "Proprietary",
+  "packageManager": "yarn@4.0.2"
+}
