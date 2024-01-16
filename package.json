@@ -3,9 +3,9 @@
     "webpack": "*"
   },
   "type": "module",
-  "main": "./index.js",
-  "esnext": "./index.ts",
-  "types": "./index.d.ts",
+  "main": "index.js",
+  "esnext": "index.ts",
+  "types": "index.d.ts",
   "homepage": "tradeterminal.io",
   "name": "@MoreChickenDelivered/md-loader",
   "scripts": {
@@ -38,7 +38,8 @@
     "nodeLinker": "pnp"
   },
   "files": [
-    "index.d.ts"
+    "index.d.ts",
+    "index.js"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
