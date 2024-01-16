@@ -7,7 +7,7 @@
   "esnext": "./index.ts",
   "types": "./index.d.ts",
   "homepage": "tradeterminal.io",
-  "name": "md-frag-loader",
+  "name": "@tt/md-loader",
   "scripts": {
     "build": "yarn install && tsc -p ./tsconfig.json"
   },
