@@ -11,7 +11,7 @@
   "scripts": {
     "build": "yarn install && tsc -p ./tsconfig.json"
   },
-  "version": "0.0.19",
+  "version": "0.0.20",
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "@types/mdast": "^4.0.3",
