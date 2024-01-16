@@ -5,6 +5,28 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@MoreChickenDelivered/md-loader@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@MoreChickenDelivered/md-loader@workspace:."
+  dependencies:
+    "@types/debug": "npm:^4.1.12"
+    "@types/mdast": "npm:^4.0.3"
+    "@types/node": "npm:^20.11.2"
+    "@types/webpack": "npm:^5.28.5"
+    debug: "npm:^4.3.4"
+    mdast: "npm:^3.0.0"
+    remark: "npm:^15.0.1"
+    remark-parse: "npm:^11.0.0"
+    remark-stringify: "npm:^11.0.0"
+    schema-utils: "npm:^4.2.0"
+    typescript: "npm:^5.3.3"
+    unified: "npm:^11.0.4"
+    vfile: "npm:^6.0.1"
+  peerDependencies:
+    webpack: "*"
+  languageName: unknown
+  linkType: soft
+
 "@jridgewell/gen-mapping@npm:^0.3.0":
   version: 0.3.3
   resolution: "@jridgewell/gen-mapping@npm:0.3.3"
@@ -56,28 +78,6 @@ __metadata:
   checksum: 4ae1c862ca0a12e1fb08ee48bb2fd65667a5258a97cc37a8708ff1e1d6a351e6a1166f2f806a9d9b9680f841da9fbde35fe6bd971eee3bdf1c10ea669ba5707a
   languageName: node
   linkType: hard
-
-"@tt/md-loader@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@tt/md-loader@workspace:."
-  dependencies:
-    "@types/debug": "npm:^4.1.12"
-    "@types/mdast": "npm:^4.0.3"
-    "@types/node": "npm:^20.11.2"
-    "@types/webpack": "npm:^5.28.5"
-    debug: "npm:^4.3.4"
-    mdast: "npm:^3.0.0"
-    remark: "npm:^15.0.1"
-    remark-parse: "npm:^11.0.0"
-    remark-stringify: "npm:^11.0.0"
-    schema-utils: "npm:^4.2.0"
-    typescript: "npm:^5.3.3"
-    unified: "npm:^11.0.4"
-    vfile: "npm:^6.0.1"
-  peerDependencies:
-    webpack: "*"
-  languageName: unknown
-  linkType: soft
 
 "@types/debug@npm:^4.0.0, @types/debug@npm:^4.1.12":
   version: 4.1.12
