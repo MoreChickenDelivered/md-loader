@@ -40,7 +40,7 @@ jobs:
       - run: corepack enable
       - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
       - run: yarn version patch
-      - run: git push --tags && git push
-      - run: yarn publish
+      - run: git push --tags  https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MoreChickenDelivered/md-loader.git
+      - run: git push  https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MoreChickenDelivered/md-loader.git
       - run: yarn npm publish
        
