@@ -57,8 +57,15 @@ jobs:
       - run: yarn version patch
       - run: echo "NEW_TAG=$(jq .version <package.json)" >> "$GITHUB_ENV"
       - run: git tag "v$NEW_TAG"
+      - run: git add package.json && git commit -m "botaction - auto tag v$NEW_TAG"
       - run: git remote set-url origin git@github.com:/MoreChickenDelivered/md-loader
       - run: git push --tags && git push
+
+      - name: Setup .yarnrc.yml
+        run: |
+          yarn config set npmScopes.my-org.npmRegistryServer "https://npm.pkg.github.com"
+          yarn config set npmScopes.my-org.npmAlwaysAuth true
+          yarn config set npmScopes.my-org.npmAuthToken $NODE_AUTH_TOKEN
 
       - run: yarn npm publish
        
