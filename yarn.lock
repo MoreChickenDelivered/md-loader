@@ -57,6 +57,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tt/md-loader@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@tt/md-loader@workspace:."
+  dependencies:
+    "@types/debug": "npm:^4.1.12"
+    "@types/mdast": "npm:^4.0.3"
+    "@types/node": "npm:^20.11.2"
+    "@types/webpack": "npm:^5.28.5"
+    debug: "npm:^4.3.4"
+    mdast: "npm:^3.0.0"
+    remark: "npm:^15.0.1"
+    remark-parse: "npm:^11.0.0"
+    remark-stringify: "npm:^11.0.0"
+    schema-utils: "npm:^4.2.0"
+    typescript: "npm:^5.3.3"
+    unified: "npm:^11.0.4"
+    vfile: "npm:^6.0.1"
+  peerDependencies:
+    webpack: "*"
+  languageName: unknown
+  linkType: soft
+
 "@types/debug@npm:^4.0.0, @types/debug@npm:^4.1.12":
   version: 4.1.12
   resolution: "@types/debug@npm:4.1.12"
@@ -642,28 +664,6 @@ __metadata:
   checksum: 7c2f02d0454b52834d1bcedef79c557bd295ee71fdabb02d041ff3aa9da48a90b5df7c0409156dedbc4df9b65da18742652aaea4759d6ece01f08971af6a7eaa
   languageName: node
   linkType: hard
-
-"md-frag-loader@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "md-frag-loader@workspace:."
-  dependencies:
-    "@types/debug": "npm:^4.1.12"
-    "@types/mdast": "npm:^4.0.3"
-    "@types/node": "npm:^20.11.2"
-    "@types/webpack": "npm:^5.28.5"
-    debug: "npm:^4.3.4"
-    mdast: "npm:^3.0.0"
-    remark: "npm:^15.0.1"
-    remark-parse: "npm:^11.0.0"
-    remark-stringify: "npm:^11.0.0"
-    schema-utils: "npm:^4.2.0"
-    typescript: "npm:^5.3.3"
-    unified: "npm:^11.0.4"
-    vfile: "npm:^6.0.1"
-  peerDependencies:
-    webpack: "*"
-  languageName: unknown
-  linkType: soft
 
 "mdast-util-from-markdown@npm:^2.0.0":
   version: 2.0.0
