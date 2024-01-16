@@ -17,6 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: test -f /usr/bin/jq || sudo apt install -y --no-install-recommends jq
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
@@ -32,15 +33,25 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: "21.x"
           registry-url: https://npm.pkg.github.com/
           scope: "@MoreChickenDelivered"
       - run: corepack enable
+
       - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
       - run: yarn version patch
-      - run: git push --tags  https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MoreChickenDelivered/md-loader.git
-      - run: git push  https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MoreChickenDelivered/md-loader.git
+      - run:  echo "NEW_TAG=$(jq .version <package.json)" >> "$GITHUB_ENV"
+      - run: git tag "v$NEW_TAG"
+
+      - uses: ad-m/github-push-action@master
+        with:
+          force: true
+          tags: true
+
       - run: yarn npm publish
        
