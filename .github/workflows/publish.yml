@@ -31,7 +31,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@MoreChickenDelivered"
       - run: corepack enable
-      - run: yarn build
+      - run: yarn install && yarn build
 
       - name: Configure SSH/Git permissions
         run: |
