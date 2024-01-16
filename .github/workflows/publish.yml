@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: "21.x"
           registry-url: https://npm.pkg.github.com/
-          scope: "@MoreChickenDelivered"
+          scope: "@tt"
       - run: corepack enable
 
       - name: Configure SSH/Git permissions
@@ -62,12 +62,6 @@ jobs:
       - run: git add package.json && git commit -m "[skip ci] [auto-semver-tag] auto tag v$NEW_TAG"
       - run: git remote set-url origin git@github.com:/MoreChickenDelivered/md-loader
       - run: git push --tags && git push
-
-      - name: Setup .yarnrc.yml
-        run: |
-          yarn config set npmScopes.my-org.npmRegistryServer "https://npm.pkg.github.com"
-          yarn config set npmScopes.my-org.npmAlwaysAuth true
-          yarn config set npmScopes.my-org.npmAuthToken $NODE_AUTH_TOKEN
 
       - run: yarn npm publish
        
