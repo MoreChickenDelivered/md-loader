@@ -8,6 +8,7 @@ on:
 
 env:
   NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
 
 permissions:                
   contents: write
@@ -43,15 +44,21 @@ jobs:
           scope: "@MoreChickenDelivered"
       - run: corepack enable
 
+      - name: Configure SSH/Git permissions
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          ssh-agent -a $SSH_AUTH_SOCK >/dev/null 2>&1
+          ssh-add - <<< "${{ secrets.DEPLKEY_PRIV }}"
+
       - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
       - run: yarn version patch
-      - run:  echo "NEW_TAG=$(jq .version <package.json)" >> "$GITHUB_ENV"
+      - run: echo "NEW_TAG=$(jq .version <package.json)" >> "$GITHUB_ENV"
       - run: git tag "v$NEW_TAG"
-
-      - uses: ad-m/github-push-action@master
-        with:
-          force: true
-          tags: true
+      - run: git remote set-url origin git@github.com:/MoreChickenDelivered/md-loader
+      - run: git push --tags && git push
 
       - run: yarn npm publish
        
