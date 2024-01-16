@@ -3,8 +3,6 @@ name: Node.js Package
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - '**/botaction'
   release:
     types: [created]
 
@@ -17,19 +15,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: test -f /usr/bin/jq || sudo apt install -y --no-install-recommends jq
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "21.x"
-      - run: corepack enable && yarn install
-      - run: yarn build
-
   publish-gpr:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -45,6 +31,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@MoreChickenDelivered"
       - run: corepack enable
+      - run: yarn build
 
       - name: Configure SSH/Git permissions
         run: |
