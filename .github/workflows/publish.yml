@@ -63,5 +63,5 @@ jobs:
       - run: git remote set-url origin git@github.com:/MoreChickenDelivered/md-loader
       - run: git push --tags && git push
 
-      - run: yarn npm publish
+      - run: yarn npm publish --access public
        
